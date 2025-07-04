@@ -49,6 +49,11 @@ def get_institution_name(image_path):
                 or "academy" in line.lower()
                 or "coursera" in line.lower()
                 or "freecodecamp" in line.lower()
+                or "simplylearn" in line.lower()
+                or "geeksforgeeks" in line.lower()
+                or "linkedin" in line.lower()
+                or "programiz" in line.lower()
+                or "datacamp" in line.lower()
             ):
                 return line.strip()
         return None
