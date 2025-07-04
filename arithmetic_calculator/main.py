@@ -4,9 +4,6 @@ from PIL import Image
 import re
 import os
 
-wind = Tk()
-wind.geometry("600x600")
-
 def open_file_dialog():
     file_path = filedialog.askopenfilename(
         title="Select Certificate Image",
@@ -105,19 +102,23 @@ def calculate():
         result_label.config(text=f"Calculated Result: {calculation_result}")
         wind.update_idletasks()
 
+
+wind = Tk()
+wind.geometry("600x600")
+
 open_file_button = Button(wind, text="Open File", command=calculate)
 open_file_button.pack(pady=10)
 
 file_path_label = Label(wind, text="")
 file_path_label.pack(pady=10)
 
+error_label = Label(wind, text="", fg="red")
+error_label.pack(pady=1)
+
 extracted_text_label = Label(wind, text="")
-extracted_text_label.pack(pady=10)
+extracted_text_label.pack(pady=1)
 
 result_label = Label(wind, text="", fg="green")
 result_label.pack(pady=10)
-
-error_label = Label(wind, text="", fg="red")
-error_label.pack(pady=10)
 
 wind.mainloop()
