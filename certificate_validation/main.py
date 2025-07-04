@@ -16,6 +16,7 @@ def open_file_dialog():
             ("All Files", "*.*"),
         ],
     )
+
     if file_path:
         file_path_label.config(text=f"Checking validity of : {file_path}")
 
@@ -26,12 +27,17 @@ def open_file_dialog():
         wind.update_idletasks()
 
         return file_path
+    else:
+        return None
 
 
 def get_institution_name(image_path):
     try:
+        if (image_path == None):
+            return None
+
         img = Image.open(image_path)
-        img = img.convert("L")
+        img = img.convert("L") # Converting to greyscale
         text = pytesseract.image_to_string(img)
 
         lines = text.split("\n")
@@ -95,6 +101,10 @@ def validate():
                 fg="red",
             )
             wind.update_idletasks()
+    elif institution_name == None:
+        error_label.config(text="No file provided", fg="red")
+        online_presence_label.config(text="")
+        wind.update_idletasks()
     else:
         extracted_institution_label.config(
             text="Could not extract institution name.", fg="red"
