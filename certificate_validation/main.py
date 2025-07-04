@@ -15,17 +15,9 @@ file_path_entry.pack(pady=5)
 
 def get_institution_name(image_path):
     img = Image.open(image_path)
-    # You might need to preprocess the image here for better OCR results
-    img = img.convert('L') # Convert to grayscale
+    img = img.convert('L') 
     text = pytesseract.image_to_string(img)
 
-    # Post-process the extracted text to find the institution name.
-    # This will likely involve custom logic based on common certificate layouts.
-    # For example, look for keywords like "University of", "College of", "Institute of", etc.
-    # Or, if you have a known list of institutions, try to match extracted lines.
-
-    # Placeholder: For simplicity, let's assume the first line is the institution.
-    # In a real scenario, this would be much more sophisticated.
     lines = text.split("\n")
     for line in lines:
         if (
@@ -35,19 +27,18 @@ def get_institution_name(image_path):
             or "academy" in line.lower()
         ):
             return line.strip()
-    return None  # Or return a more robust default/error indication
+    return None  
 
 
 def check_website_exists(url):
     try:
-        response = requests.head(url, timeout=5) # Use HEAD for efficiency
-        return 200 <= response.status_code < 400 # Check for success status codes
+        response = requests.head(url, timeout=5) 
+        return 200 <= response.status_code < 400 
     except requests.exceptions.RequestException:
         return False
 
 
 def verify_online_presence(institution_name):
-    # Basic cleanup for URL formation
     cleaned_name = institution_name.replace(" ", "").lower()
     
     potential_domains = [
@@ -59,12 +50,10 @@ def verify_online_presence(institution_name):
 
     for domain in potential_domains:
         if check_website_exists(f"http://{domain}") or check_website_exists(f"https://{domain}"):
-            return True, domain # Found a live website
-    return False, None # No online presence found for common patterns
+            return True, domain 
+    return False, None 
 
 def validate():
-    # --- Putting it together ---
-    
     institution_name = get_institution_name(file_path_entry.get())
     if institution_name:
         print(f"Extracted Institution: {institution_name}")
