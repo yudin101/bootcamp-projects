@@ -28,13 +28,13 @@ def open_file_dialog():
 
         return file_path
     else:
-        return None
+        return "No file provided"
 
 
 def get_institution_name(image_path):
     try:
-        if (image_path == None):
-            return None
+        if (image_path ==  "No file provided"):
+            return image_path
 
         img = Image.open(image_path)
         img = img.convert("L") # Converting to greyscale
@@ -47,6 +47,8 @@ def get_institution_name(image_path):
                 or "college" in line.lower()
                 or "institute" in line.lower()
                 or "academy" in line.lower()
+                or "coursera" in line.lower()
+                or "freecodecamp" in line.lower()
             ):
                 return line.strip()
         return None
@@ -83,7 +85,7 @@ def verify_online_presence(institution_name):
 
 def validate():
     institution_name = get_institution_name(open_file_dialog())
-    if institution_name:
+    if institution_name and institution_name != "No file provided":
         extracted_institution_label.config(
             text=f"Extracted Institution: {institution_name}", fg="green"
         )
@@ -101,8 +103,8 @@ def validate():
                 fg="red",
             )
             wind.update_idletasks()
-    elif institution_name == None:
-        error_label.config(text="No file provided", fg="red")
+    elif institution_name == "No file provided":
+        error_label.config(text=institution_name, fg="red")
         online_presence_label.config(text="")
         wind.update_idletasks()
     else:
