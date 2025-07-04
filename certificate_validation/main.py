@@ -58,7 +58,7 @@ def get_institution_name(image_path):
                 return line.strip()
         return None
     except Exception as e:
-        error_label.config(text=e)
+        error_label.config(text=f"{e}")
         wind.update_idletasks()
 
 
