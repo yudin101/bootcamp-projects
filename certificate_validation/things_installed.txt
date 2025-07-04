@@ -1,0 +1,9 @@
+Python Packages:
+pillow
+pytesseract
+requests
+tkinter
+
+Packages from apt:
+tesseract-ocr
+python3-tk
