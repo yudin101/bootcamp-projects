@@ -38,3 +38,14 @@
 - Tkinter
 - requests
 - json
+
+## [Password Manager](https://github.com/yudin101/bootcamp-projects/tree/main/password_manager)
+### How it works?
+- Enter username and password length
+- Information gets saved in a CSV file
+
+### Packages Used
+- os 
+- csv 
+- string
+- random
