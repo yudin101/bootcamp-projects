@@ -43,7 +43,7 @@ def generate_text_with_gemini(prompt, model_name="gemini-2.0-flash", api_key="")
 
 
 def click():
-    my_api_key = "" # Put your API Key
+    my_api_key = "" # Get an API Key from aistudio.google.com/apikey
 
     user_prompt = prompt_entry.get()
 
@@ -56,7 +56,7 @@ def click():
     response_box.insert(tk.END, "Thinking...")
     wind.update_idletasks()
 
-    response_text = generate_text_with_gemini(user_prompt, api_key=my_api_key)
+    response_text = generate_text_with_gemini(user_prompt, api_key=my_api_key) # model_name can be omitted as default value has been provided
 
     response_box.delete(1.0, tk.END)
     response_box.insert(tk.END, response_text)
