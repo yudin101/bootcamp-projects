@@ -27,3 +27,14 @@
 - pillow
 - re
 - os
+
+## [Chatbot with Gemini](https://github.com/yudin101/bootcamp-projects/tree/main/chatbot_with_gemini)
+### How it works?
+- Enter a prompt
+- It is sent to Gemini's API *(get the API Key from [aistudio.google.com/apikey](https://aistudio.google.com/apikey))*
+- Receive Gemini's Response
+
+### Packages Used
+- Tkinter
+- requests
+- json

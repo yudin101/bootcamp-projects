@@ -1,0 +1,7 @@
+Python Packages:
+tkinter
+requests
+json
+
+Packages from apt:
+python3-tk
