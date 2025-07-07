@@ -43,9 +43,11 @@
 ### How it works?
 - Enter username and password length
 - Information gets saved in a CSV file
+- Displays the contnets of the CSV file
 
 ### Packages Used
 - os 
 - csv 
 - string
 - random
+- tkinter
