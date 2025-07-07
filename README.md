@@ -51,3 +51,13 @@
 - string
 - random
 - tkinter
+
+## [Finger Detection](https://github.com/yudin101/bootcamp-projects/tree/main/finer_detection)
+### How it works?
+- Calculates the position of TIP and PIP of the fingers
+- If coordinates of TIP is higher than that of PIP, finger count increases
+- X coordinate is calculated for thumb and Y coordinate for other fingers
+
+### Packages Used
+- opencv
+- mediapipe
