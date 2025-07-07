@@ -52,7 +52,7 @@
 - random
 - tkinter
 
-## [Finger Detection](https://github.com/yudin101/bootcamp-projects/tree/main/finer_detection)
+## [Finger Detection](https://github.com/yudin101/bootcamp-projects/tree/main/finger_detection)
 ### How it works?
 - Calculates the position of TIP and PIP of the fingers
 - If coordinates of TIP is higher than that of PIP, finger count increases
