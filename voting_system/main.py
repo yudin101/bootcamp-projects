@@ -5,6 +5,33 @@ from tkinter import scrolledtext
 
 filename = "information.json"
 
+
+def end():
+    with open(filename, "r") as file:
+        data = json.load(file)
+        first_candidate = data[0]
+
+        for candidate in data:
+            if candidate["votes"] > first_candidate["votes"]:
+                message_label.config(
+                    text=f"Winner: {candidate['name']}\nVotes: {candidate['votes']}",
+                    fg="green",
+                )
+            elif (
+                candidate["votes"] == first_candidate["votes"]
+                and candidate["name"] != first_candidate["name"]
+            ):
+                message_label.config(
+                    text=f"Tie between: {candidate['name']} and {first_candidate['name']}",
+                    fg="yellow",
+                )
+            else:
+                message_label.config(
+                    text=f"Winner: {first_candidate['name']}\nVotes: {first_candidate['votes']}",
+                    fg="green",
+                )
+
+
 def update_votes(name):
     data = []
     vote_increased = False
@@ -39,8 +66,13 @@ def display_votes():
             tk.Button(
                 button_frame,
                 text=candidate["name"],
+                font=("Arial", 13, "normal"),
                 command=lambda name=candidate["name"]: update_votes(name),
             ).pack(side=tk.LEFT)
+
+        tk.Button(
+            button_frame, text="End", font=("Arial", 15, "bold"), command=end
+        ).pack(side=tk.RIGHT)
 
         response_box.delete(1.0, tk.END)
         response_box.insert(tk.END, file_contents)
