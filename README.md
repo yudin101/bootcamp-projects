@@ -9,7 +9,7 @@
 - Else, invalid
 
 ### Packages Used
-- Tkinter
+- tkinter
 - pytesseract
 - pillow
 - requests
@@ -22,7 +22,7 @@
 - Show result
 
 ### Packages Used
-- Tkinter
+- tkinter
 - pytesseract
 - pillow
 - re
@@ -35,7 +35,7 @@
 - Receive Gemini's Response
 
 ### Packages Used
-- Tkinter
+- tkinter
 - requests
 - json
 
@@ -61,3 +61,14 @@
 ### Packages Used
 - opencv
 - mediapipe
+
+## [Voting System](https://github.com/yudin101/bootcamp-projects/tree/main/voting_system)
+### How it works?
+- Enter the candidate's name
+- A button with the candidate's name appears at the bottom
+- Click that to increase votes
+- Information gets saved in a JSON file
+
+### Packages Used
+- tkinter
+- json
