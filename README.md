@@ -72,3 +72,16 @@
 ### Packages Used
 - tkinter
 - json
+
+## [Web Scraper](https://github.com/yudin101/bootcamp-projects/tree/main/web_scraper)
+### How it works?
+- Enter the URL of a website
+- Downloads all the images from that website having certain class
+- Puts all the images into a PDF
+
+### Pacakges Used
+- os
+- shutil
+- requests
+- bs4
+- pillow

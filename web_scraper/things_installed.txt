@@ -1,0 +1,6 @@
+Python Packages:
+os
+shutil
+requests
+bs4
+pillow
